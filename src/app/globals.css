@@ -40,3 +40,54 @@ a {
     color-scheme: dark;
   }
 }
+
+.main-heading {
+  font-size: 2.5em; /* Main heading size */
+  margin-bottom: 10px; /* Space below the main heading */
+  color: #333; /* Dark color for the main heading */
+  text-align: center; /* Center the main heading */
+}
+
+.sub-heading {
+  font-size: 1.5em; /* Subheading size */
+  margin-bottom: 20px; /* Space below the subheading */
+  color: #666; /* Lighter color for the subheading */
+  text-align: center; /* Center the subheading */
+}
+
+input {
+  padding: 15px; /* Increase padding for a larger input */
+  margin-bottom: 20px; /* Space below the input */
+  width: 50%; /* Set width to 50% of the container */
+  font-size: 18px; /* Increase font size */
+  border: 1px solid #ddd; /* Add border */
+  border-radius: 5px; /* Rounded corners */
+  display: block; /* Centering */
+  margin-left: auto; /* Centering */
+  margin-right: auto; /* Centering */
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px; /* Add padding for spacing */
+  text-align: left;
+  vertical-align: top; /* Align content to the top */
+}
+
+tr:not(:last-child) {
+  border-bottom: 2px solid #f2f2f2; /* Optional: Add a border for separation */
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
