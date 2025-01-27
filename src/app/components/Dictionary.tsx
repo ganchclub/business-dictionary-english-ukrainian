@@ -1,18 +1,28 @@
 "use client"; // Add this line
 
 import React, { useEffect, useState } from 'react';
-import Papa from 'papaparse';
+import Papa, {ParseResult} from 'papaparse'
+
+interface Dict {
+    English: string;
+    Ukrainian: string;
+}
 
 const Dictionary = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<Dict[]>([]); // You can define a more specific type if you have one
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         // Fetch and parse the CSV file
-        Papa.parse('/dictionary.csv', {
+        Papa.parse<Dict>('/dictionary.csv', {
             header: true,
             download: true,
-            complete: (results) => {
+            // Streaming large files
+            // For very large files, PapaParse supports a streaming mode which processes the file piece by piece without loading the entire file into memory. Here's how to set it up with TypeScript:
+            // step: (results) => {
+            //     console.log("Row data:", results.data);
+            // }
+            complete: (results: ParseResult<Dict>) => { // Define the type for results
                 setData(results.data);
             },
         });
@@ -25,7 +35,7 @@ const Dictionary = () => {
     );
 
     // Function to highlight the search term
-    const highlightText = (text, search) => {
+    const highlightText = (text: string, search: string) => {
         if (!search) return text; // Return original text if no search term
         const parts = text.split(new RegExp(`(${search})`, 'gi')); // Split text by search term
         return parts.map((part, index) =>
@@ -38,7 +48,8 @@ const Dictionary = () => {
     return (
         <div>
             <h1 className="main-heading">BUSINESS DICTIONARY</h1>
-            <h2 className="sub-heading">Economics • Finance • Banking Investments • Bank Loans</h2>
+            <h2 className="sub-heading">English - Ukrainian</h2>
+            <h3 className="heading3">Economics • Finance • Banking Investments • Bank Loans</h3>
             <input
                 type="text"
                 placeholder="Search..."

@@ -50,8 +50,14 @@ a {
 
 .sub-heading {
   font-size: 1.5em; /* Subheading size */
-  margin-bottom: 20px; /* Space below the subheading */
+  margin-bottom: 10px; /* Space below the subheading */
   color: #666; /* Lighter color for the subheading */
+  text-align: center; /* Center the subheading */
+}
+.heading3 {
+  font-size: 1.2em; /* Subheading size */
+  margin-bottom: 20px; /* Space below the subheading */
+  color: #333; /* Lighter color for the subheading */
   text-align: center; /* Center the subheading */
 }
 
