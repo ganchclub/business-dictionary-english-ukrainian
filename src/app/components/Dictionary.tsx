@@ -17,11 +17,6 @@ const Dictionary = () => {
         Papa.parse<Dict>('/dictionary.csv', {
             header: true,
             download: true,
-            // Streaming large files
-            // For very large files, PapaParse supports a streaming mode which processes the file piece by piece without loading the entire file into memory. Here's how to set it up with TypeScript:
-            // step: (results) => {
-            //     console.log("Row data:", results.data);
-            // }
             complete: (results: ParseResult<Dict>) => { // Define the type for results
                 setData(results.data);
             },
